@@ -1,0 +1,11 @@
+{
+    "require-dev": {
+        "cache/integration-tests": "^0.16.0"
+    },
+    "require": {
+        "cache/adapter-common": "^1.0",
+        "phpunit/phpunit": "^4.0|^5.0",
+        "cache/array-adapter": "^1.0",
+        "cache/filesystem-adapter": "^1.0"
+    }
+}
