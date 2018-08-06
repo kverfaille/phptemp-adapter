@@ -1,8 +1,7 @@
 <?php
+namespace Cache\Adapter\PHPTemp;
 
 use Cache\Adapter\Common\AbstractCachePool;
-require_once "PHPTempPoolOptions.php";
-require_once "PHPTempPoolEntry.php";
 
 /**
  * Created by PhpStorm.
@@ -77,7 +76,6 @@ class PHPTempPool extends AbstractCachePool
             $entry->setOffset(ftell($this->fileStream));
 
             // Assure block size
-
             if ($size < $blockSize) {
                 $padding = $blockSize - $size;
             }
@@ -98,7 +96,6 @@ class PHPTempPool extends AbstractCachePool
                 throw new \Exception('Should never happen!');
             }
         }
-        unset($serializedData);
         return true;
     }
 
@@ -113,7 +110,7 @@ class PHPTempPool extends AbstractCachePool
      * @param int|null $ttl seconds from now
      *
      * @return bool true if saved
-     * @throws Exception
+     * @throws \Exception
      */
     protected function storeItemInCache(\Cache\Adapter\Common\PhpCacheItem $item, $ttl)
     {
@@ -126,7 +123,9 @@ class PHPTempPool extends AbstractCachePool
         );
 
         $entry = $this->getStreamEntry($item->getKey(), true);
-        return $this->writeToStream($entry, $data);
+        $success = $this->writeToStream($entry, $data);
+        unset($data);
+        return $success;
     }
 
     /**
@@ -196,6 +195,7 @@ class PHPTempPool extends AbstractCachePool
      * @param string $name
      *
      * @return array
+     * @throws \Exception
      */
     protected function getList($name)
     {

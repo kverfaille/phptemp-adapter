@@ -1,9 +1,7 @@
 <?php
 
-use Cache\Adapter\PHPArray\ArrayCachePool;
+use Cache\Adapter\PHPTemp\PHPTempPool;
 use Cache\IntegrationTests\CachePoolTest;
-
-require_once "../PHPTempPool.php";
 
 class PoolIntegrationTest extends CachePoolTest
 {

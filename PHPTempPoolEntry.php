@@ -5,6 +5,7 @@
  * Date: 8/4/18
  * Time: 8:35 AM
  */
+namespace Cache\Adapter\PHPTemp;
 
 class PHPTempPoolEntry
 {
@@ -14,7 +15,7 @@ class PHPTempPoolEntry
      * The offset in the stream where
      * @return int
      */
-    public function getOffset(): int
+    public function getOffset()
     {
         return $this->offset;
     }
@@ -22,7 +23,7 @@ class PHPTempPoolEntry
     /**
      * @param int $offset
      */
-    public function setOffset(int $offset): void
+    public function setOffset($offset)
     {
         $this->offset = $offset;
     }
@@ -33,7 +34,7 @@ class PHPTempPoolEntry
      * The length of the data that is stored
      * @return int
      */
-    public function getDataLength(): int
+    public function getDataLength()
     {
         return $this->dataLength;
     }
@@ -41,7 +42,7 @@ class PHPTempPoolEntry
     /**
      * @param int $length
      */
-    public function setDataLength(int $length): void
+    public function setDataLength($length)
     {
         $this->dataLength = $length;
     }
@@ -52,7 +53,7 @@ class PHPTempPoolEntry
      * The length that is used in the stream (including padding)
      * @return int
      */
-    public function getBlockSize(): int
+    public function getBlockSize()
     {
         return $this->blockSize;
     }
@@ -60,7 +61,7 @@ class PHPTempPoolEntry
     /**
      * @param int $storageLength
      */
-    public function setBlockSize(int $storageLength): void
+    public function setBlockSize($storageLength)
     {
         $this->blockSize = $storageLength;
     }

@@ -1,4 +1,5 @@
 <?php
+namespace Cache\Adapter\PHPTemp;
 /**
  * Created by PhpStorm.
  * User: kevin
@@ -22,7 +23,7 @@ class PHPTempPoolOptions
      * @param int $MemoryLimit
      * The amount of memory that might be consumed by the cache before overflow to disk is applied
      */
-    public function setMemoryLimit(int $MemoryLimit): void
+    public function setMemoryLimit($MemoryLimit)
     {
         $this->memoryLimit = $MemoryLimit;
     }
@@ -33,7 +34,7 @@ class PHPTempPoolOptions
      * The default block size for storing list (to avoid fragmentation)
      * @return int
      */
-    public function getListBlockSize(): int
+    public function getListBlockSize()
     {
         return $this->listBlockSize;
     }
@@ -41,7 +42,7 @@ class PHPTempPoolOptions
     /**
      * @param int $listBlockSize
      */
-    public function setListBlockSize(int $listBlockSize): void
+    public function setListBlockSize($listBlockSize)
     {
         $this->listBlockSize = $listBlockSize;
     }
